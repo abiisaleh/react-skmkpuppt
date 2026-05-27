@@ -82,33 +82,6 @@ export const WelcomeStep: React.FC<WelcomeStepProps> = ({
         </div>
       </div>
 
-      {/* Context info for prefilled links */}
-      {(satker || layanan) && (
-        <div className="mt-6 p-4 bg-kpu-red-light rounded-xl border border-kpu-red/10 text-left max-w-lg mx-auto">
-          <p className="text-xs font-semibold text-kpu-red mb-1">
-            Tautan Khusus Terdeteksi:
-          </p>
-          <div className="space-y-1 text-slate-700 text-xs text-slate-600">
-            {satker && (
-              <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-kpu-orange flex-shrink-0"></span>
-                <span className="break-all">
-                  Satker: <strong>{satker}</strong>
-                </span>
-              </div>
-            )}
-            {layanan && (
-              <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-kpu-orange flex-shrink-0"></span>
-                <span className="break-all">
-                  Layanan: <strong>{layanan}</strong>
-                </span>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-
       {/* CTA Button */}
       <div className="mt-8 flex justify-center">
         <motion.button
