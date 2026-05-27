@@ -1,46 +1,46 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { Landmark, ClipboardCheck, ArrowRight, ShieldCheck, Clock, Award } from 'lucide-react';
-import { Answers } from '../types';
+import React from "react";
+import { motion } from "motion/react";
+import {
+  Landmark,
+  ClipboardCheck,
+  ArrowRight,
+  ShieldCheck,
+  Clock,
+  Award,
+} from "lucide-react";
+import { Answers } from "../types";
 
 interface WelcomeStepProps {
   onStart: () => void;
   answers: Answers;
 }
 
-export const WelcomeStep: React.FC<WelcomeStepProps> = ({ onStart, answers }) => {
-  const satker = answers['entry_1063016371'] || answers.satker;
-  const layanan = answers['entry_1627610245'] || answers.layanan;
-
+export const WelcomeStep: React.FC<WelcomeStepProps> = ({
+  onStart,
+  answers,
+}) => {
+  const satker = answers["entry_1063016371"] || answers.satker;
+  const layanan = answers["entry_1627610245"] || answers.layanan;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
-      transition={{ duration: 0.4, ease: 'easeOut' }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
       className="text-center"
     >
-      {/* Brand Badge */}
-      <div className="flex justify-center mb-6">
-        <div className="relative">
-          <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-kpu-red to-kpu-orange opacity-30 blur-sm animate-pulse"></div>
-          <div className="relative w-20 h-20 bg-white rounded-full flex items-center justify-center border-2 border-kpu-red/30 p-2 shadow-sm">
-            {/* Fallback elegant emblem inside */}
-            <Landmark className="w-10 h-10 text-kpu-red" />
-          </div>
-        </div>
-      </div>
-
       <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
         Survei Kepuasan Masyarakat
       </h1>
       <p className="mt-2 text-base font-semibold text-kpu-orange uppercase tracking-wider">
-        KPU Provinsi Papua Tengah
+        KPU Se-Provinsi Papua Tengah
       </p>
-      
+
       <p className="mt-4 text-slate-600 max-w-md mx-auto text-sm leading-relaxed">
-        Suara Anda sangat berarti bagi kelayakan dan perbaikan kualitas pelayanan publik di lingkungan Komisi Pemilihan Umum se-Provinsi Papua Tengah.
+        Suara Anda sangat berarti bagi kelayakan dan perbaikan kualitas
+        pelayanan publik di lingkungan Komisi Pemilihan Umum se-Provinsi Papua
+        Tengah.
       </p>
 
       {/* Info Grid Card */}
@@ -51,7 +51,9 @@ export const WelcomeStep: React.FC<WelcomeStepProps> = ({ onStart, answers }) =>
           </div>
           <div>
             <h4 className="font-bold text-slate-800 text-sm">Privasi Aman</h4>
-            <p className="text-xs text-slate-500 mt-0.5">Identitas Anda dirahasiakan sepenuhnya.</p>
+            <p className="text-xs text-slate-500 mt-0.5">
+              Identitas Anda dirahasiakan sepenuhnya.
+            </p>
           </div>
         </div>
 
@@ -61,7 +63,9 @@ export const WelcomeStep: React.FC<WelcomeStepProps> = ({ onStart, answers }) =>
           </div>
           <div>
             <h4 className="font-bold text-slate-800 text-sm">± 5 Menit</h4>
-            <p className="text-xs text-slate-500 mt-0.5">Pengisian singkat, hanya 3 bagian utama.</p>
+            <p className="text-xs text-slate-500 mt-0.5">
+              Pengisian singkat, hanya 3 bagian utama.
+            </p>
           </div>
         </div>
 
@@ -71,7 +75,9 @@ export const WelcomeStep: React.FC<WelcomeStepProps> = ({ onStart, answers }) =>
           </div>
           <div>
             <h4 className="font-bold text-slate-800 text-sm">Respon Instan</h4>
-            <p className="text-xs text-slate-500 mt-0.5">Tersinkronisasi otomatis ke Google Form.</p>
+            <p className="text-xs text-slate-500 mt-0.5">
+              Tersinkronisasi otomatis ke google sheet.
+            </p>
           </div>
         </div>
       </div>
@@ -79,18 +85,24 @@ export const WelcomeStep: React.FC<WelcomeStepProps> = ({ onStart, answers }) =>
       {/* Context info for prefilled links */}
       {(satker || layanan) && (
         <div className="mt-6 p-4 bg-kpu-red-light rounded-xl border border-kpu-red/10 text-left max-w-lg mx-auto">
-          <p className="text-xs font-semibold text-kpu-red mb-1">Tautan Khusus Terdeteksi:</p>
+          <p className="text-xs font-semibold text-kpu-red mb-1">
+            Tautan Khusus Terdeteksi:
+          </p>
           <div className="space-y-1 text-slate-700 text-xs text-slate-600">
             {satker && (
               <div className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-kpu-orange flex-shrink-0"></span>
-                <span className="break-all">Satker: <strong>{satker}</strong></span>
+                <span className="break-all">
+                  Satker: <strong>{satker}</strong>
+                </span>
               </div>
             )}
             {layanan && (
               <div className="flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-kpu-orange flex-shrink-0"></span>
-                <span className="break-all">Layanan: <strong>{layanan}</strong></span>
+                <span className="break-all">
+                  Layanan: <strong>{layanan}</strong>
+                </span>
               </div>
             )}
           </div>
