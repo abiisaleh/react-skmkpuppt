@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Landmark, ClipboardCheck, ArrowRight, ShieldCheck, Clock, Award } from 'lucide-react';
 import { Answers } from '../types';
-import { ENTRY_MAPPING } from '../data/questionsData';
 
 interface WelcomeStepProps {
   onStart: () => void;
@@ -10,8 +9,8 @@ interface WelcomeStepProps {
 }
 
 export const WelcomeStep: React.FC<WelcomeStepProps> = ({ onStart, answers }) => {
-  const satker = answers[ENTRY_MAPPING.satker] || answers.satker;
-  const layanan = answers[ENTRY_MAPPING.layanan] || answers.layanan;
+  const satker = answers['entry_1063016371'] || answers.satker;
+  const layanan = answers['entry_1627610245'] || answers.layanan;
 
 
   return (

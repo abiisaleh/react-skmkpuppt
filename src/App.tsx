@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { FormWizard } from './components/FormWizard';
 import { Landmark, Share2, HelpCircle, ShieldCheck } from 'lucide-react';
 import { APP_CONFIG } from './config';
-import { ENTRY_MAPPING } from './data/questionsData';
 
 export default function App() {
   const [headerSatker, setHeaderSatker] = useState<string>('');
@@ -21,8 +20,8 @@ export default function App() {
         try {
           const parsed = JSON.parse(saved);
           // Support both entry ID mapping and semantic key fallback
-          satkerVal = parsed[ENTRY_MAPPING.satker] || parsed.satker || '';
-          layananVal = parsed[ENTRY_MAPPING.layanan] || parsed.layanan || '';
+          satkerVal = parsed['entry_1063016371'] || parsed.satker || '';
+          layananVal = parsed['entry_1627610245'] || parsed.layanan || '';
         } catch {}
       }
 

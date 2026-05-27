@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { questions, ENTRY_MAPPING } from '../data/questionsData';
+import { questions } from '../data/questionsData';
 import { Question, Answers } from '../types';
 import { WelcomeStep } from './WelcomeStep';
 import { QuestionCard } from './QuestionCard';
@@ -43,16 +43,16 @@ export const FormWizard: React.FC = () => {
 
     if (satkerParam) {
       try {
-        loadedAnswers[ENTRY_MAPPING.satker] = decodeURIComponent(satkerParam);
+        loadedAnswers['entry_1063016371'] = decodeURIComponent(satkerParam);
       } catch {
-        loadedAnswers[ENTRY_MAPPING.satker] = satkerParam;
+        loadedAnswers['entry_1063016371'] = satkerParam;
       }
     }
     if (layananParam) {
       try {
-        loadedAnswers[ENTRY_MAPPING.layanan] = decodeURIComponent(layananParam);
+        loadedAnswers['entry_1627610245'] = decodeURIComponent(layananParam);
       } catch {
-        loadedAnswers[ENTRY_MAPPING.layanan] = layananParam;
+        loadedAnswers['entry_1627610245'] = layananParam;
       }
     }
 
@@ -79,8 +79,8 @@ export const FormWizard: React.FC = () => {
   // Logic to determine if a question is pre-filled from URL
   const isPrefilledQuestion = (q: Question) => {
     const params = new URLSearchParams(window.location.search);
-    if (q.id === ENTRY_MAPPING.satker && params.get('satker')) return true;
-    if (q.id === ENTRY_MAPPING.layanan && (params.get('layanan') || params.get('jenis_layanan'))) return true;
+    if (q.id === 'entry_1063016371' && params.get('satker')) return true;
+    if (q.id === 'entry_1627610245' && (params.get('layanan') || params.get('jenis_layanan'))) return true;
     return false;
   };
 
@@ -106,7 +106,7 @@ export const FormWizard: React.FC = () => {
       const q = questions[nextIdx];
       
       // Skip jenis_disabilitas if disabilitas is not 'Ya'
-      if (q.id === ENTRY_MAPPING.jenis_disabilitas && answers[ENTRY_MAPPING.disabilitas] !== 'Ya') {
+      if (q.id === 'entry_1236261329' && answers['disabilitas'] !== 'Ya') {
         nextIdx++;
         continue;
       }
@@ -185,14 +185,14 @@ export const FormWizard: React.FC = () => {
     
     questions.forEach((q) => {
       // Skip welcome slide and disabilitas logical-helper question
-      if (q.id === 'welcome' || q.id === ENTRY_MAPPING.disabilitas) return;
+      if (q.id === 'welcome' || q.id === 'disabilitas') return;
 
       // Special conditional disabilitas mapping logic
-      if (q.id === ENTRY_MAPPING.jenis_disabilitas) {
-        const hasDisabilitas = answers[ENTRY_MAPPING.disabilitas] === 'Ya';
+      if (q.id === 'entry_1236261329') {
+        const hasDisabilitas = answers['disabilitas'] === 'Ya';
         formData.append(
           'entry.1236261329',
-          hasDisabilitas ? (answers[ENTRY_MAPPING.jenis_disabilitas] || '') : 'Non Disabilitas'
+          hasDisabilitas ? (answers['entry_1236261329'] || '') : 'Non Disabilitas'
         );
         return;
       }
@@ -239,8 +239,8 @@ export const FormWizard: React.FC = () => {
     const layananParam = params.get('layanan') || params.get('jenis_layanan');
     
     const nextAnswers: Answers = {};
-    if (satkerParam) nextAnswers[ENTRY_MAPPING.satker] = decodeURIComponent(satkerParam);
-    if (layananParam) nextAnswers[ENTRY_MAPPING.layanan] = decodeURIComponent(layananParam);
+    if (satkerParam) nextAnswers['entry_1063016371'] = decodeURIComponent(satkerParam);
+    if (layananParam) nextAnswers['entry_1627610245'] = decodeURIComponent(layananParam);
 
     setAnswers(nextAnswers);
     setHistory([0]);
@@ -254,8 +254,8 @@ export const FormWizard: React.FC = () => {
   const handleShare = () => {
     let shareUrl = window.location.origin + window.location.pathname;
     const params = [];
-    const savedSatker = answers[ENTRY_MAPPING.satker];
-    const savedLayanan = answers[ENTRY_MAPPING.layanan];
+    const savedSatker = answers['entry_1063016371'];
+    const savedLayanan = answers['entry_1627610245'];
     if (savedSatker) params.push(`satker=${encodeURIComponent(savedSatker)}`);
     if (savedLayanan) params.push(`layanan=${encodeURIComponent(savedLayanan)}`);
     
@@ -280,7 +280,7 @@ export const FormWizard: React.FC = () => {
 
     const isQuestionVisible = (q: Question) => {
       if (isPrefilledQuestion(q)) return false;
-      if (q.id === ENTRY_MAPPING.jenis_disabilitas && answers[ENTRY_MAPPING.disabilitas] !== 'Ya') {
+      if (q.id === 'entry_1236261329' && answers['disabilitas'] !== 'Ya') {
         return false;
       }
       return true;

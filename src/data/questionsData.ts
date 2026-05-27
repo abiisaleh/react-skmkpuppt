@@ -317,16 +317,3 @@ export const questions: Question[] = [
   }
 ];
 
-export const ENTRY_MAPPING = {
-  satker: 'entry_1063016371',
-  layanan: 'entry_1627610245',
-  tanggal: 'entry_1808773534',
-  jenis_kelamin: 'entry_1856999164',
-  pendidikan: 'entry_920799597',
-  usia: 'entry_1218160737',
-  pekerjaan: 'entry_1965801609',
-  disabilitas: 'disabilitas',
-  jenis_disabilitas: 'entry_1236261329',
-  kritik_saran: 'entry_207142440',
-};
-
