@@ -138,15 +138,8 @@ export default function App() {
         <div className="max-w-3xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="tracking-tight text-slate-500">
             &copy; {new Date().getFullYear()} Komisi Pemilihan Umum Provinsi
-            Papua Tengah.
+            Papua Tengah. by <a href="https://abiisaleh.github.io"  className="font-bold">abiisaleh</a>
           </p>
-          <div className="flex items-center gap-4 text-[11px] text-slate-400">
-            <span className="flex items-center gap-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-              Sertifikasi SSL
-            </span>
-            <span>v2.1 Premium Redesign</span>
-          </div>
         </div>
       </footer>
     </div>
