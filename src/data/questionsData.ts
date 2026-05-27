@@ -310,7 +310,7 @@ export const questions: Question[] = [
   // Kritik dan Saran
   {
     id: "entry_207142440",
-    section: "Saran & Rekomendasi",
+    section: "Pesan",
     title: "Kritik & Saran",
     type: "text",
     optional: true
