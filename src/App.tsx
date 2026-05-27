@@ -129,7 +129,7 @@ export default function App() {
       </nav>
 
       {/* Main Content Area */}
-      <main className="flex-1 flex flex-col items-center justify-start py-6 max-w-4xl w-full mx-auto pb-24">
+      <main className="flex-1 flex flex-col items-center justify-start py-6 max-w-4xl w-full mx-auto">
         <FormWizard />
       </main>
 

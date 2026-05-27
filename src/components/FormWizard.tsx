@@ -408,7 +408,7 @@ export const FormWizard: React.FC = () => {
 
       {/* Spacer to prevent scroll layout cutoff due to sticky footer */}
       {!isSubmitted && !isSubmitting && !showWelcome && (
-        <div className="h-24 sm:h-28 w-full" />
+        <div className="w-full" />
       )}
 
       {/* Dynamic Action Sticky Footer floating at the bottom */}
