@@ -1,0 +1,6 @@
+{
+  "name": "SKM KPU Papua Tengah",
+  "description": "Aplikasi Survey Kepuasan Masyarakat (SKM) KPU Provinsi Papua Tengah dengan desain interaktif, responsif, dan premium.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

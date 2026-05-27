@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-kpu-red: #6d171a;
+  --color-kpu-red-light: #fbeee1;
+  --color-kpu-orange: #ff800b;
+}
+
+/* Custom background animations & glassmorphism details if needed */
+.kpu-gradient {
+  background: linear-gradient(135deg, rgba(109, 23, 26, 0.05) 0%, rgba(255, 128, 11, 0.05) 100%);
+}
+
+.kpu-card-glow {
+  box-shadow: 0 10px 40px -15px rgba(109, 23, 26, 0.15);
+}
+
