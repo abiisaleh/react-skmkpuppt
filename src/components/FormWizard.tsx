@@ -314,7 +314,7 @@ export const FormWizard: React.FC = () => {
 
     const stepLabel =
       currentStepInSec > 0 && totalStepsInSec > 0
-        ? `Langkah ${currentStepInSec} dari ${totalStepsInSec}`
+        ? `${currentStepInSec} dari ${totalStepsInSec} Pertanyaan`
         : "";
 
     const percent =
@@ -354,7 +354,7 @@ export const FormWizard: React.FC = () => {
               {progressMetrics.activeSec}
             </span>
             <span className="text-kpu-orange text-[11px] font-bold">
-              {progressMetrics.label} ({progressMetrics.percent}%)
+              {progressMetrics.label}
             </span>
           </div>
           <div className="w-full h-1.5 bg-slate-200/50 rounded-full overflow-hidden relative">
