@@ -70,7 +70,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+    <div className="min-h-[100dvh] bg-slate-50 flex flex-col font-sans">
       {/* Premium KPU Dual-Stripe Navbar Layout */}
       <nav className="sticky top-0 z-40 bg-white border-b border-slate-200/80 shadow-xs">
         {/* Top orange brand stripe decoration */}
