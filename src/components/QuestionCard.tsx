@@ -101,7 +101,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
                   type="button"
                   whileHover={{ y: -1 }}
                   whileTap={{ scale: 0.99 }}
-                  onClick={() => selectOptionWithDelay(opt)}
+                  onClick={() => onChange(opt)}
                   className={`w-full text-left flex items-center justify-between p-4 rounded-xl border font-medium text-sm transition-all duration-150 cursor-pointer ${
                     isSelected
                       ? "border-kpu-red bg-kpu-red-light/60 text-kpu-red shadow-sm"
