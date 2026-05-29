@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Question } from "../types";
+import { APP_CONFIG } from "../config";
 import { Calendar, Check, AlertCircle, Info, ChevronRight } from "lucide-react";
 
 interface QuestionCardProps {
@@ -24,9 +25,9 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
 
     if (val) {
       const year = new Date(val).getFullYear();
-      if (year !== 2026) {
+      if (year !== APP_CONFIG.ACTIVE_YEAR) {
         setDateError(
-          "Tanggal penerimaan layanan harus berada pada tahun 2026.",
+          `Tanggal penerimaan layanan harus berada pada tahun ${APP_CONFIG.ACTIVE_YEAR}.`,
         );
       } else {
         setDateError(null);
@@ -74,7 +75,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
             <select
               value={value || ""}
               onChange={(e) => onChange(e.target.value)}
-              className="w-full appearance-none bg-slate-50 border border-slate-200 focus:border-kpu-red focus:bg-white text-slate-700 font-medium rounded-xl px-4 py-4 pr-10 focus:outline-none transition-all text-sm shadow-inner cursor-pointer"
+              className="w-full appearance-none bg-slate-50 border border-slate-200 focus:border-kpu-red focus:bg-white text-slate-700 font-medium rounded-xl px-4 py-4 pr-10 focus:outline-none transition-all text-sm scrollbar-thin scrollbar-thumb-slate-200"
             >
               <option value="" disabled>
                 -- Silakan Pilih Satuan Kerja --
@@ -173,11 +174,11 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
             <div className="relative">
               <input
                 type="date"
-                min="2026-01-01"
-                max="2026-12-31"
+                min={`${APP_CONFIG.ACTIVE_YEAR}-01-01`}
+                max={`${APP_CONFIG.ACTIVE_YEAR}-12-31`}
                 value={value || ""}
                 onChange={handleDateChange}
-                className="w-full bg-slate-50 border border-slate-200 focus:border-kpu-red focus:bg-white text-slate-700 font-medium rounded-xl px-4 py-4 pl-12 focus:outline-none transition-all text-sm shadow-inner cursor-pointer"
+                className="w-full bg-slate-50 border border-slate-200 focus:border-kpu-red focus:bg-white text-slate-700 font-medium rounded-xl px-4 py-4 pl-12 focus:outline-none transition-all text-sm scrollbar-thin scrollbar-thumb-slate-200"
               />
               <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-slate-400">
                 <Calendar className="w-5 h-5 text-slate-400" />
@@ -205,7 +206,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
             type="text"
             value={value || ""}
             onChange={(e) => onChange(e.target.value)}
-            className="w-full bg-slate-50 border border-slate-200 focus:border-kpu-red focus:bg-white text-slate-700 font-semibold rounded-xl px-4 py-4 focus:outline-none transition-all text-sm shadow-inner placeholder-slate-400"
+            className="w-full bg-slate-50 border border-slate-200 focus:border-kpu-red focus:bg-white text-slate-700 font-semibold rounded-xl px-4 py-4 focus:outline-none transition-all text-sm scrollbar-thin scrollbar-thumb-slate-200"
             placeholder="Tuliskan di sini..."
           />
         )}
