@@ -45,6 +45,15 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
     }, 280);
   };
 
+  // Get today's date in YYYY-MM-DD format
+  const getTodayDate = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
+
   return (
     <div className="w-full bg-white rounded-2xl border border-slate-100 p-6 sm:p-8 kpu-card-glow">
       {/* Category Header (Optional indicator only) */}
@@ -175,7 +184,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
               <input
                 type="date"
                 min={`${APP_CONFIG.ACTIVE_YEAR}-01-01`}
-                max={`${APP_CONFIG.ACTIVE_YEAR}-12-31`}
+                max={getTodayDate()}
                 value={value || ""}
                 onChange={handleDateChange}
                 className="w-full bg-slate-50 border border-slate-200 focus:border-kpu-red focus:bg-white text-slate-700 font-medium rounded-xl px-4 py-4 pl-12 focus:outline-none transition-all text-sm scrollbar-thin scrollbar-thumb-slate-200"
