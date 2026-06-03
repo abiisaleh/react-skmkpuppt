@@ -36,20 +36,20 @@ export const SuccessStep: React.FC<SuccessStepProps> = ({ answers, onReset, onSh
     return { average, count };
   }, [answers]);
 
-  // Map average (1.0 to 4.0) to exactly one of 4 emojis
+  // Map average based on new criteria
   const feedback = useMemo(() => {
     const avg = ratingMetrics.average;
     if (avg === 0) {
       return { emoji: '✨', text: 'Selesai', subtext: 'Terima kasih telah mengisi survei', bg: 'bg-slate-50', border: 'border-slate-100', textCol: 'text-slate-600' };
     }
-    if (avg <= 1.5) {
-      return { emoji: '😞', text: 'Sangat Tidak Puas', subtext: 'Tingkat kepuasan sangat rendah', bg: 'bg-rose-50/50', border: 'border-rose-100/50', textCol: 'text-rose-600' };
-    } else if (avg <= 2.5) {
-      return { emoji: '😐', text: 'Kurang Puas', subtext: 'Tingkat kepuasan di bawah rata-rata', bg: 'bg-amber-50/50', border: 'border-amber-100/50', textCol: 'text-amber-600' };
-    } else if (avg <= 3.5) {
-      return { emoji: '🙂', text: 'Puas / Baik', subtext: 'Pelayanan dirasakan sudah baik', bg: 'bg-emerald-50/50', border: 'border-emerald-100/50', textCol: 'text-emerald-600' };
+    if (avg < 2.60) {
+      return { emoji: '😞', text: 'Tidak Baik', subtext: 'Tingkat kepuasan sangat rendah', bg: 'bg-rose-50/50', border: 'border-rose-100/50', textCol: 'text-rose-600' };
+    } else if (avg < 3.064) {
+      return { emoji: '😐', text: 'Kurang Baik', subtext: 'Tingkat kepuasan di bawah rata-rata', bg: 'bg-amber-50/50', border: 'border-amber-100/50', textCol: 'text-amber-600' };
+    } else if (avg < 3.5324) {
+      return { emoji: '🙂', text: 'Baik', subtext: 'Pelayanan dirasakan sudah baik', bg: 'bg-emerald-50/50', border: 'border-emerald-100/50', textCol: 'text-emerald-600' };
     } else {
-      return { emoji: '😄', text: 'Sangat Puas / Unggul', subtext: 'Pelayanan dirasakan sangat memuaskan', bg: 'bg-indigo-50/50', border: 'border-indigo-100/50', textCol: 'text-indigo-600' };
+      return { emoji: '😄', text: 'Sangat Baik', subtext: 'Pelayanan dirasakan sangat memuaskan', bg: 'bg-indigo-50/50', border: 'border-indigo-100/50', textCol: 'text-indigo-600' };
     }
   }, [ratingMetrics.average]);
 
@@ -91,7 +91,7 @@ export const SuccessStep: React.FC<SuccessStepProps> = ({ answers, onReset, onSh
       <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
         <button
           onClick={onShare}
-          className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-xl text-xs sm:text-sm transition-all duration-150 cursor-pointer w-full sm:w-auto"
+          className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-slate-200 hover:border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-semibold rounded-xl text-sm transition-all duration-150"
         >
           <Share2 className="w-4 h-4" />
           <span>Bagikan Tautan</span>
@@ -99,7 +99,7 @@ export const SuccessStep: React.FC<SuccessStepProps> = ({ answers, onReset, onSh
 
         <button
           onClick={onReset}
-          className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-kpu-red hover:bg-kpu-red/95 text-white font-semibold rounded-xl text-xs sm:text-sm transition-all duration-150 shadow-sm cursor-pointer w-full sm:w-auto"
+          className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-kpu-red hover:bg-kpu-red/95 text-white font-semibold rounded-xl text-xs sm:text-sm transition-all duration-150"
         >
           <RotateCcw className="w-4 h-4" />
           <span>Isi Kuesioner Baru</span>
