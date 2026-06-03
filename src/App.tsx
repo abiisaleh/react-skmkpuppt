@@ -135,12 +135,10 @@ export default function App() {
 
       {/* Styled Footer */}
       <footer className="bg-white border-t border-slate-200/80 py-6 text-center text-slate-400 text-xs font-medium">
-        <div className="max-w-3xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="tracking-tight text-slate-500">
-            &copy; {new Date().getFullYear()} KPU Provinsi
-            Papua Tengah<br />by <a href="https://abiisaleh.github.io"  className="font-bold">abiisaleh</a>
-          </p>
-        </div>
+        <p className="tracking-tight text-slate-500">
+          &copy; {new Date().getFullYear()} KPU Provinsi
+          Papua Tengah<br />by <a href="https://abiisaleh.github.io"  className="font-bold">abiisaleh</a>
+        </p>
       </footer>
     </div>
   );
