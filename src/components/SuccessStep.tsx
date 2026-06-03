@@ -39,9 +39,6 @@ export const SuccessStep: React.FC<SuccessStepProps> = ({ answers, onReset, onSh
   // Map average based on new criteria
   const feedback = useMemo(() => {
     const avg = ratingMetrics.average;
-    if (avg === 0) {
-      return { emoji: '✨', text: 'Selesai', subtext: 'Terima kasih telah mengisi survei', bg: 'bg-slate-50', border: 'border-slate-100', textCol: 'text-slate-600' };
-    }
     if (avg < 2.60) {
       return { emoji: '😞', text: 'Tidak Baik', subtext: 'Tingkat kepuasan sangat rendah', bg: 'bg-rose-50/50', border: 'border-rose-100/50', textCol: 'text-rose-600' };
     } else if (avg < 3.064) {
